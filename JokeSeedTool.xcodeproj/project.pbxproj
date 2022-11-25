@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DD73791292FE16100CB584B /* JokeSeedToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD73790292FE16100CB584B /* JokeSeedToolApp.swift */; };
+		0DD73795292FE16500CB584B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD73794292FE16500CB584B /* Assets.xcassets */; };
+		0DD73798292FE16500CB584B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD73797292FE16500CB584B /* Preview Assets.xcassets */; };
+		0DD737A0292FE1DB00CB584B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD7379F292FE1DB00CB584B /* RootView.swift */; };
+		0DD737A2292FE21700CB584B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD737A1292FE21700CB584B /* ViewModel.swift */; };
+		0DD737A4292FE3DD00CB584B /* ApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD737A3292FE3DD00CB584B /* ApplicationController.swift */; };
+		0DD737A6292FE90500CB584B /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD737A5292FE90500CB584B /* FileUtils.swift */; };
+		0DD737A8292FFF0900CB584B /* FontImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD737A7292FFF0900CB584B /* FontImageTool.swift */; };
+		0DD737AA293006C300CB584B /* ImageTransparencyCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD737A9293006C300CB584B /* ImageTransparencyCropper.swift */; };
+		0DD737AC29300A2200CB584B /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD737AB29300A2200CB584B /* Bit.swift */; };
+		0DD737AE29300A5E00CB584B /* BitLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD737AD29300A5E00CB584B /* BitLoader.swift */; };
+		0DD98E9729303AAA00EE9DB2 /* EdgeFixerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD98E9629303AAA00EE9DB2 /* EdgeFixerTool.swift */; };
+		0DD9C22B2930875D00EE9DB2 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9C22A2930875D00EE9DB2 /* LoadingOverlay.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0DD7378D292FE16100CB584B /* JokeSeedTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JokeSeedTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DD73790292FE16100CB584B /* JokeSeedToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeSeedToolApp.swift; sourceTree = "<group>"; };
+		0DD73794292FE16500CB584B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0DD73797292FE16500CB584B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0DD73799292FE16500CB584B /* JokeSeedTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JokeSeedTool.entitlements; sourceTree = "<group>"; };
+		0DD7379F292FE1DB00CB584B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		0DD737A1292FE21700CB584B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		0DD737A3292FE3DD00CB584B /* ApplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationController.swift; sourceTree = "<group>"; };
+		0DD737A5292FE90500CB584B /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		0DD737A7292FFF0900CB584B /* FontImageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontImageTool.swift; sourceTree = "<group>"; };
+		0DD737A9293006C300CB584B /* ImageTransparencyCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransparencyCropper.swift; sourceTree = "<group>"; };
+		0DD737AB29300A2200CB584B /* Bit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bit.swift; sourceTree = "<group>"; };
+		0DD737AD29300A5E00CB584B /* BitLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitLoader.swift; sourceTree = "<group>"; };
+		0DD98E9629303AAA00EE9DB2 /* EdgeFixerTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeFixerTool.swift; sourceTree = "<group>"; };
+		0DD9C22A2930875D00EE9DB2 /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0DD7378A292FE16100CB584B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DD73784292FE16100CB584B = {
+			isa = PBXGroup;
+			children = (
+				0DD7378F292FE16100CB584B /* JokeSeedTool */,
+				0DD7378E292FE16100CB584B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0DD7378E292FE16100CB584B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0DD7378D292FE16100CB584B /* JokeSeedTool.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0DD7378F292FE16100CB584B /* JokeSeedTool */ = {
+			isa = PBXGroup;
+			children = (
+				0DD9C22A2930875D00EE9DB2 /* LoadingOverlay.swift */,
+				0DD737A7292FFF0900CB584B /* FontImageTool.swift */,
+				0DD73790292FE16100CB584B /* JokeSeedToolApp.swift */,
+				0DD7379F292FE1DB00CB584B /* RootView.swift */,
+				0DD737A1292FE21700CB584B /* ViewModel.swift */,
+				0DD737A3292FE3DD00CB584B /* ApplicationController.swift */,
+				0DD73794292FE16500CB584B /* Assets.xcassets */,
+				0DD73799292FE16500CB584B /* JokeSeedTool.entitlements */,
+				0DD73796292FE16500CB584B /* Preview Content */,
+				0DD737A5292FE90500CB584B /* FileUtils.swift */,
+				0DD737A9293006C300CB584B /* ImageTransparencyCropper.swift */,
+				0DD737AB29300A2200CB584B /* Bit.swift */,
+				0DD737AD29300A5E00CB584B /* BitLoader.swift */,
+				0DD98E9629303AAA00EE9DB2 /* EdgeFixerTool.swift */,
+			);
+			path = JokeSeedTool;
+			sourceTree = "<group>";
+		};
+		0DD73796292FE16500CB584B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0DD73797292FE16500CB584B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0DD7378C292FE16100CB584B /* JokeSeedTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DD7379C292FE16500CB584B /* Build configuration list for PBXNativeTarget "JokeSeedTool" */;
+			buildPhases = (
+				0DD73789292FE16100CB584B /* Sources */,
+				0DD7378A292FE16100CB584B /* Frameworks */,
+				0DD7378B292FE16100CB584B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JokeSeedTool;
+			productName = JokeSeedTool;
+			productReference = 0DD7378D292FE16100CB584B /* JokeSeedTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0DD73785292FE16100CB584B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					0DD7378C292FE16100CB584B = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 0DD73788292FE16100CB584B /* Build configuration list for PBXProject "JokeSeedTool" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0DD73784292FE16100CB584B;
+			productRefGroup = 0DD7378E292FE16100CB584B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0DD7378C292FE16100CB584B /* JokeSeedTool */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0DD7378B292FE16100CB584B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DD73798292FE16500CB584B /* Preview Assets.xcassets in Resources */,
+				0DD73795292FE16500CB584B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0DD73789292FE16100CB584B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DD737A8292FFF0900CB584B /* FontImageTool.swift in Sources */,
+				0DD737AE29300A5E00CB584B /* BitLoader.swift in Sources */,
+				0DD73791292FE16100CB584B /* JokeSeedToolApp.swift in Sources */,
+				0DD9C22B2930875D00EE9DB2 /* LoadingOverlay.swift in Sources */,
+				0DD737A2292FE21700CB584B /* ViewModel.swift in Sources */,
+				0DD737AC29300A2200CB584B /* Bit.swift in Sources */,
+				0DD737AA293006C300CB584B /* ImageTransparencyCropper.swift in Sources */,
+				0DD737A4292FE3DD00CB584B /* ApplicationController.swift in Sources */,
+				0DD98E9729303AAA00EE9DB2 /* EdgeFixerTool.swift in Sources */,
+				0DD737A0292FE1DB00CB584B /* RootView.swift in Sources */,
+				0DD737A6292FE90500CB584B /* FileUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0DD7379A292FE16500CB584B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0DD7379B292FE16500CB584B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		0DD7379D292FE16500CB584B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JokeSeedTool/JokeSeedTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JokeSeedTool/Preview Content\"";
+				DEVELOPMENT_TEAM = 2GG555KD5G;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.raptis.comedy.image.tool.JokeSeedTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0DD7379E292FE16500CB584B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = JokeSeedTool/JokeSeedTool.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"JokeSeedTool/Preview Content\"";
+				DEVELOPMENT_TEAM = 2GG555KD5G;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.raptis.comedy.image.tool.JokeSeedTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0DD73788292FE16100CB584B /* Build configuration list for PBXProject "JokeSeedTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DD7379A292FE16500CB584B /* Debug */,
+				0DD7379B292FE16500CB584B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DD7379C292FE16500CB584B /* Build configuration list for PBXNativeTarget "JokeSeedTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DD7379D292FE16500CB584B /* Debug */,
+				0DD7379E292FE16500CB584B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0DD73785292FE16100CB584B /* Project object */;
+}
