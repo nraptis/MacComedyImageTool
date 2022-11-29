@@ -38,6 +38,12 @@ struct RootView: View {
     
     func controlPanel() -> some View {
         VStack(spacing: 12) {
+            
+            
+            Text("\(viewModel.bitCount) Bits Loaded")
+                .font(.title2.bold())
+                .foregroundColor(.black)
+            
             button("Generate Words") {
                 print("Generating Words based on \"Assets/words.txt\"")
                 self.viewModel.generateWords()

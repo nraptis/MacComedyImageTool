@@ -172,4 +172,22 @@ final class FileUtils {
     func saveImageAsPNGToExportsFile(_ image: NSImage?, _ fileName: String) {
         saveImageAsPNGToFilePath(image, exportsPath(fileName))
     }
+    
+    func getAllFiles(inputDirectory: String) -> [URL] {
+        let directoryURL = URL(fileURLWithPath: inputDirectory)
+        do {
+            if directoryURL.startAccessingSecurityScopedResource() {
+                let fileURLs = try FileManager.default.contentsOfDirectory(at: directoryURL,
+                                                                           includingPropertiesForKeys: nil,
+                                                                           options: [.skipsHiddenFiles])
+                directoryURL.stopAccessingSecurityScopedResource()
+
+                return fileURLs
+            }
+        } catch {
+            directoryURL.stopAccessingSecurityScopedResource()
+            print("Could not load directory \"\(inputDirectory)\"")
+        }
+        return [URL]()
+    }
 }

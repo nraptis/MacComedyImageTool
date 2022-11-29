@@ -7,6 +7,7 @@
 
 import Foundation
 import Cocoa
+import AppKit
 
 func performOnMainQueue(_ block: () -> Void) {
     if Thread.isMainThread {
@@ -22,18 +23,22 @@ class ViewModel: ObservableObject {
     
     @Published var isLoading = false
     @Published var loadingText = ""
+    @Published var bitCount = 0
     
     static func preview() -> ViewModel {
         ViewModel(app: ApplicationController.preview())
     }
     
     let fontImageTool = FontImageTool()
+    let stamperTool = TextOnBackgroundStamperTool()
     let bitLoader = BitLoader()
     let edgeFixerTool = EdgeFixerTool()
     
     let app: ApplicationController
     init(app: ApplicationController) {
         self.app = app
+        self.bitLoader.load()
+        self.bitCount = bitLoader.bits.count
     }
     
     func printFonts() {
@@ -44,6 +49,7 @@ class ViewModel: ObservableObject {
     
     func printBits() {
         bitLoader.load()
+        self.bitCount = bitLoader.bits.count
         print("__BEGIN__PHRASES:")
         for bit in bitLoader.bits {
             print(bit)
@@ -54,6 +60,7 @@ class ViewModel: ObservableObject {
     func generateWords() {
         bitLoader.load()
         performOnMainQueue {
+            self.bitCount = bitLoader.bits.count
             isLoading = true
             loadingText = "\(1) of \(bitLoader.bits.count)"
         }
@@ -68,8 +75,9 @@ class ViewModel: ObservableObject {
     
     private func generateWordsAsync() {
         for (index, bit) in bitLoader.bits.enumerated() {
-            fontImageTool.processBit(bit)
-            
+            autoreleasepool {
+                fontImageTool.processBit(bit)
+            }
             performOnMainQueue {
                 self.loadingText = "\(index + 1) of \(self.bitLoader.bits.count)"
             }
@@ -79,32 +87,12 @@ class ViewModel: ObservableObject {
     }
     
     func stampWords() {
-        
-        if let image = FileUtils.shared.imageFromAssetsFile("background.png") {
-            stampWords(image)
-            return
-        }
-        if let image = FileUtils.shared.imageFromAssetsFile("background.jpg") {
-            stampWords(image)
-            return
-        }
-        
-        if let image = FileUtils.shared.imageFromDocumentsFile("background.png") {
-            stampWords(image)
-            return
-        }
-        if let image = FileUtils.shared.imageFromDocumentsFile("background.jpg") {
-            stampWords(image)
-            return
-        }
-        
-        if let image = FileUtils.shared.imageFromExportsFile("background.png") {
-            stampWords(image)
-            return
-        }
-        if let image = FileUtils.shared.imageFromExportsFile("background.jpg") {
-            stampWords(image)
-            return
+        autoreleasepool {
+            if let background = stamperTool.getBackground() {
+                stampWords(background)
+            } else {
+                print("Cannot find background image. \"background.png\" or \"background.jpg\" in \"Assets\" folder...")
+            }
         }
     }
     
@@ -118,6 +106,7 @@ class ViewModel: ObservableObject {
         bitLoader.load()
         
         performOnMainQueue {
+            self.bitCount = bitLoader.bits.count
             isLoading = true
             loadingText = "\(1) of \(bitLoader.bits.count)"
         }
@@ -140,73 +129,24 @@ class ViewModel: ObservableObject {
                 self.loadingText = "\(index + 1) of \(self.bitLoader.bits.count)"
             }
             
-            if let textImage = FileUtils.shared.imageFromAssetsFile("[text]/\(bit.fileNameText)") {
-                stampWords(bit, background, textImage)
-            } else if let textImage = FileUtils.shared.imageFromAssetsFile(bit.fileNameText) {
-                stampWords(bit, background, textImage)
-            } else if let textImage = FileUtils.shared.imageFromDocumentsFile("[text]/\(bit.fileNameText)") {
-                stampWords(bit, background, textImage)
-            } else if let textImage = FileUtils.shared.imageFromDocumentsFile(bit.fileNameText) {
-                stampWords(bit, background, textImage)
-            } else if let textImage = FileUtils.shared.imageFromExportsFile("[text]/\(bit.fileNameText)") {
-                stampWords(bit, background, textImage)
-            } else if let textImage = FileUtils.shared.imageFromExportsFile(bit.fileNameText) {
-                stampWords(bit, background, textImage)
-            } else {
-                print("No image file for bit: {\(bit)}")
+            autoreleasepool {
+                if let textImage = self.stamperTool.textImageFor(bit: bit) {
+                    self.stamperTool.stampWords(bit, background, textImage)
+                } else {
+                    print("Could notfind text image for bit \(bit), expected in \"\(FileUtils.shared.assetsPath("[text]/\(bit.fileNameText)"))\"")
+                }
             }
         }
-        
-        
-        
     }
     
-    func stampWords(_ bit: Bit, _ background: NSImage, _ textImage: NSImage) {
-        guard background.size.width > 512, background.size.height > 512 else {
-            print("Background is too small, size is \(background.size.width) x \(background.size.height)")
-            return
-        }
-        guard textImage.size.width > 32, textImage.size.height > 32 else {
-            print("Text image is too small, size is \(textImage.size.width) x \(textImage.size.height)")
-            return
-        }
-        
-        let backgroundWidth = Int(background.size.width + 0.5)
-        let backgroundHeight = Int(background.size.height + 0.5)
-        
-        let textImageWidth = Int(textImage.size.width + 0.5)
-        let textImageHeight = Int(textImage.size.height + 0.5)
-        
-        let insetSize = 260
-        
-        let finalWidth = textImageWidth - (insetSize)
-        let finalHeight = textImageHeight - (insetSize)
-        
-        let backgroundRect = CGRect(x: (finalWidth / 2) - (backgroundWidth / 2),
-                                    y: (finalHeight / 2) - (backgroundHeight / 2),
-                                    width: backgroundWidth,
-                                    height: backgroundHeight)
-        
-        let textImageRect = CGRect(x: (finalWidth / 2) - (textImageWidth / 2),
-                                   y: (finalHeight / 2) - (textImageHeight / 2),
-                                   width: textImageWidth,
-                                   height: textImageHeight)
-        
-        let result = NSImage(size: NSSize(width: finalWidth, height: finalHeight))
-        result.lockFocus()
-        background.draw(in: backgroundRect)
-        textImage.draw(in: textImageRect)
-        result.unlockFocus()
-        
-        FileUtils.shared.saveImageAsPNGToExportsFile(result, "[stamped]/\(bit.fileName)")
-    }
+    
     
     func fixEdges() {
         let inputDirectory = FileUtils.shared.assetsPath("[edges]/")
         let outputDirectory = FileUtils.shared.exportsPath("[edges_fixed]/")
         
-        let allFiles = edgeFixerTool.getAllFiles(inputDirectory: inputDirectory)
-                            
+        let allFiles = FileUtils.shared.getAllFiles(inputDirectory: inputDirectory)
+        
         if allFiles.count <= 0 {
             print("There are no files in \"\(inputDirectory)\" to fix edges on...")
             return
@@ -233,7 +173,9 @@ class ViewModel: ObservableObject {
             performOnMainQueue {
                 self.loadingText = "\(index + 1) of \(allFiles.count)"
             }
-            self.edgeFixerTool.fixFile(fileURL: fileURL, outputDirectory: outputDirectory)
+            autoreleasepool {
+                self.edgeFixerTool.fixFile(fileURL: fileURL, outputDirectory: outputDirectory)
+            }
         }
     }
     

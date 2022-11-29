@@ -17,24 +17,6 @@ class EdgeFixerTool {
     
     let resultPadding = 80
     
-    func getAllFiles(inputDirectory: String) -> [URL] {
-        let directoryURL = URL(fileURLWithPath: inputDirectory)
-        do {
-            if directoryURL.startAccessingSecurityScopedResource() {
-                let fileURLs = try FileManager.default.contentsOfDirectory(at: directoryURL,
-                                                                           includingPropertiesForKeys: nil,
-                                                                           options: [.skipsHiddenFiles])
-                directoryURL.stopAccessingSecurityScopedResource()
-
-                return fileURLs
-            }
-        } catch {
-            directoryURL.stopAccessingSecurityScopedResource()
-            print("Could not load directory \"\(inputDirectory)\"")
-        }
-        return [URL]()
-    }
-    
     func fixFile(fileURL: URL, outputDirectory: String) {
         do {
             let data = try Data(contentsOf: fileURL)
@@ -47,15 +29,6 @@ class EdgeFixerTool {
             print("Could not load data for \(fileURL.absoluteString)")
             print("Error: \(error.localizedDescription)")
         }
-    }
-    
-    private func trim(image: NSImage, rect: CGRect) -> NSImage {
-        let result = NSImage(size: rect.size)
-        result.lockFocus()
-        let destRect = CGRect(origin: .zero, size: result.size)
-        image.draw(in: destRect, from: rect, operation: .copy, fraction: 1.0)
-        result.unlockFocus()
-        return result
     }
     
     private func fixImage(_ image: NSImage, _ name: String, _ outputDirectory: String) {

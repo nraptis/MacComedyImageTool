@@ -118,28 +118,5 @@ class BitLoader {
                 bits.append(Bit.twoLine(line1: bestConfigurationLine1, line2: bestConfigurationLine2))
             }
         }
-
-        /*
-        bits.sort { (lhs: Bit, rhs: Bit) in
-            if !lhs.isOneLiner() {
-                if !rhs.isOneLiner() {
-                    let countLHS = max(lhs.line1Count(), lhs.line2Count())
-                    let countRHS = max(rhs.line1Count(), rhs.line2Count())
-                    return countLHS > countRHS
-                } else {
-                    return true
-                }
-                
-            } else if !rhs.isOneLiner() {
-                return false
-            } else {
-                return lhs.line1Count() > rhs.line1Count()
-            }
-        }
-        */
-        
-        for bit in bits {
-            print(bit)
-        }
     }
 }

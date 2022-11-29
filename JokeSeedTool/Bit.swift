@@ -87,11 +87,30 @@ enum Bit: CustomStringConvertible {
         }
     }
     
+    private var legalCharacters: Set<Character> {
+        let string = "abcdefghijklmnopqrstuvwxyz0123456789"
+        let array = Array(string)
+        let set = Set<Character>(array)
+        return set
+    }
+    
+    private func escapeToUnderscore(_ string: String) -> String {
+        let legal = legalCharacters
+        var array = Array(string.lowercased())
+        for index in array.indices {
+            let char = array[index]
+            if !legal.contains(char) {
+                array[index] = "_"
+            }
+        }
+        return String(array)
+    }
+    
     var fileNameText: String {
         if isOneLiner() {
-            return "_text_\(line1().lowercased()).png"
+            return "TEXT_\(escapeToUnderscore(line1())).png"
         } else {
-            return "_text_\(line1().lowercased())_\(line2().lowercased()).png"
+            return "TEXT_\(escapeToUnderscore(line1()))_\(escapeToUnderscore(line2())).png"
         }
     }
 }
