@@ -44,14 +44,17 @@ struct RootView: View {
                 .font(.title2.bold())
                 .foregroundColor(.black)
             
-            button("Generate Words") {
-                print("Generating Words based on \"Assets/words.txt\"")
-                self.viewModel.generateWords()
+            HStack {
+                button("Generate Words") {
+                    print("Generating Words based on \"Assets/words.txt\"")
+                    self.viewModel.generateWords()
+                }
+                button("Stamp Words") {
+                    print("Stamping words on \"background.png\", expecting words in \"Assets/[text]/\"")
+                    self.viewModel.stampWords()
+                }
             }
-            button("Stamp Words") {
-                print("Stamping words on \"background.png\", expecting words in \"Assets/[text]/\"")
-                self.viewModel.stampWords()
-            }
+            HStack {
             button("Fix Edges") {
                 print("Fixing edges using \"Assets/[edges]/*\", expecting words in \"Assets/[text]/\"")
                 self.viewModel.fixEdges()
@@ -60,9 +63,17 @@ struct RootView: View {
                 print("Printing the fonts...")
                 self.viewModel.printFonts()
             }
-            button("Print Phrases") {
-                print("Printing the words...")
-                self.viewModel.printBits()
+            }
+            HStack {
+                button("Print Phrases") {
+                    print("Printing the words...")
+                    self.viewModel.printBits()
+                }
+                button("Parse Upjoke Words") {
+                    print("Printing the words...")
+                    self.viewModel.parseUpjoke()
+                }
+                
             }
             
         }

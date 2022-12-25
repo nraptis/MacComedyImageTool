@@ -35,10 +35,8 @@ class BitLoader {
         loadBits(text)
     }
     
-    private func loadBits(_ text: String) {
-        bits.removeAll()
-        
-        let _linesNL = text.split(separator: "\n")
+    static func linesFromText(_ text: String) -> [String] {
+        let linesNL = text.split(separator: "\n")
             .map {
                 $0
                     .uppercased()
@@ -48,9 +46,10 @@ class BitLoader {
                 .count > 0
         }
         
-        var _lines = [String]()
-        for line in _linesNL {
-            let _linesCR = line.split(separator: "\r")
+        var lines = [String]()
+        var linesSet = Set<String>()
+        for lineNL in linesNL {
+            let linesCR = lineNL.split(separator: "\r")
                 .map {
                     $0
                         .trimmingCharacters(in: .whitespacesAndNewlines)
@@ -58,14 +57,30 @@ class BitLoader {
                 $0
                     .count > 0
             }
-            for innerLine in _linesCR {
-                _lines.append(innerLine)
+            for line in linesCR {
+                if !linesSet.contains(line) {
+                    linesSet.insert(line)
+                    lines.append(line)
+                }
             }
         }
+        return lines.sorted {
+            if $0.count == $1.count {
+                return $0 < $1
+            } else {
+                return $0.count < $1.count
+            }
+            
+        }
+    }
+    
+    static func linesAsWordsFromText(_ text: String) -> [[String]] {
+        
+        let wholeLines = Self.linesFromText(text)
         
         var lines = [[String]]()
         var set = Set<[String]>()
-        for line in _lines {
+        for line in wholeLines {
             var words = [String]()
             let splitOnSpace = line.split(separator: " ")
             for checkWord in splitOnSpace {
@@ -84,6 +99,13 @@ class BitLoader {
                 }
             }
         }
+        return lines
+    }
+    
+    private func loadBits(_ text: String) {
+        bits.removeAll()
+        
+        let lines = Self.linesAsWordsFromText(text)
         
         for line in lines {
             if line.count <= 0 {

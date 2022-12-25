@@ -11,7 +11,24 @@ import SwiftUI
 
 class FontImageTool {
     
-    let fontName = "CandyBeans"
+    //let fontName = "Lemon-Days"
+    //let fontName = "CandyBeans"
+    //let fontName = "Mabook"
+    //let fontName = "Hey-Comic"
+    //let fontName = "DinosaurRegular"
+    //let fontName = "Yokelvision"
+    
+    
+    //let fontName = "Menlo-Bold"
+    
+    
+    
+    
+    
+    let fontName = "Abalone-Smile"
+    
+    //let fontName = "Skia-Regular_Black"
+    
     //let fontName = "Arial-BoldMT"
     //let fontName = "Helvetica"
     

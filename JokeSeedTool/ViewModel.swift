@@ -39,6 +39,83 @@ class ViewModel: ObservableObject {
         self.app = app
         self.bitLoader.load()
         self.bitCount = bitLoader.bits.count
+        
+        //upjoke_seeds.txt
+        //uniquifySeeds("upjoke_seeds.txt")
+        //de_double_filenames()
+    }
+    
+    private var legalCharacters: Set<Character> {
+        let string = "abcdefghijklmnopqrstuvwxyz0123456789"
+        let array = Array(string)
+        let set = Set<Character>(array)
+        return set
+    }
+    
+    private func escapeToUnderscore(_ string: String) -> String {
+        let legal = legalCharacters
+        var array = Array(string.lowercased())
+        for index in array.indices {
+            let char = array[index]
+            if !legal.contains(char) {
+                array[index] = "_"
+            }
+        }
+        return String(array)
+    }
+    
+    func de_double_filenames() {
+        
+        let directory = FileUtils.shared.assetsPath("[borq]")
+        let directoryOutput = FileUtils.shared.exportsPath("[borq]/")
+        
+        let files = FileUtils.shared.getAllFiles(inputDirectory: directory)
+        
+        for file in files {
+            
+            let nameOriginal = file.absoluteString
+            
+            if let data = try? Data(contentsOf: file) {
+                let nameTrimmed = (nameOriginal as NSString).lastPathComponent
+                let split = nameTrimmed.split(separator: ".")
+                if let first = split.first {
+                    let newName = escapeToUnderscore(String(first))
+                    
+                    let exportDir = directoryOutput + newName + ".png"
+                    
+                    FileUtils.shared.saveDataToFilePath(data, exportDir)
+                    print("data \(data.count), name = \(first)")
+                }
+                
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    func uniquifySeeds(_ fileName: String) {
+        
+        let path = FileUtils.shared.assetsPath(fileName)
+        guard let data = FileUtils.shared.dataFromFilePath(path) else {
+            print("no data at \(path)")
+            return
+        }
+        
+        guard let string = String(data: data, encoding: .utf8) else {
+            print("no string at \(path)")
+            return
+        }
+        
+        let lines = BitLoader.linesFromText(string)
+        
+        for (index, line) in lines.enumerated() {
+            if (index % 2) == 1 {
+                print(line.lowercased())
+            }
+        }
+        print("\(lines.count) words")
     }
     
     func printFonts() {
@@ -122,13 +199,10 @@ class ViewModel: ObservableObject {
     }
     
     func stampWordsAsync(_ background: NSImage) {
-        
         for (index, bit) in bitLoader.bits.enumerated() {
-            
             performOnMainQueue {
                 self.loadingText = "\(index + 1) of \(self.bitLoader.bits.count)"
             }
-            
             autoreleasepool {
                 if let textImage = self.stamperTool.textImageFor(bit: bit) {
                     self.stamperTool.stampWords(bit, background, textImage)
@@ -177,6 +251,36 @@ class ViewModel: ObservableObject {
                 self.edgeFixerTool.fixFile(fileURL: fileURL, outputDirectory: outputDirectory)
             }
         }
+    }
+    
+    func parseUpjoke() {
+        
+        performOnMainQueue {
+            isLoading = true
+            loadingText = "downloading..."
+        }
+        
+        DispatchQueue.global(qos: .default).async {
+            self.parseUpjokeAsync()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.isLoading = false
+                self.loadingText = ""
+            }
+        }
+    }
+    
+    func parseUpjokeAsync() {
+        
+        let parser = UpjokeParser()
+        let words = parser.toWordList()
+        
+        print("=== BEGIN UPJOKE DUMP ===")
+        
+        for word in words {
+            print(word)
+        }
+        
+        print("=== END UPJOKE DUMP ===")
     }
     
 }

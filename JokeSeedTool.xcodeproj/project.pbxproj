@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D22B63D2934293A00C052BD /* TextOnBackgroundStamperTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22B63C2934293A00C052BD /* TextOnBackgroundStamperTool.swift */; };
+		0D22B63F2936F15D00C052BD /* UpjokeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22B63E2936F15D00C052BD /* UpjokeParser.swift */; };
 		0DD73791292FE16100CB584B /* JokeSeedToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD73790292FE16100CB584B /* JokeSeedToolApp.swift */; };
 		0DD73795292FE16500CB584B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD73794292FE16500CB584B /* Assets.xcassets */; };
 		0DD73798292FE16500CB584B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DD73797292FE16500CB584B /* Preview Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0D22B63C2934293A00C052BD /* TextOnBackgroundStamperTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOnBackgroundStamperTool.swift; sourceTree = "<group>"; };
+		0D22B63E2936F15D00C052BD /* UpjokeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpjokeParser.swift; sourceTree = "<group>"; };
 		0DD7378D292FE16100CB584B /* JokeSeedTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JokeSeedTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD73790292FE16100CB584B /* JokeSeedToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeSeedToolApp.swift; sourceTree = "<group>"; };
 		0DD73794292FE16500CB584B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				0DD737AD29300A5E00CB584B /* BitLoader.swift */,
 				0DD98E9629303AAA00EE9DB2 /* EdgeFixerTool.swift */,
 				0D22B63C2934293A00C052BD /* TextOnBackgroundStamperTool.swift */,
+				0D22B63E2936F15D00C052BD /* UpjokeParser.swift */,
 			);
 			path = JokeSeedTool;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				0DD737AE29300A5E00CB584B /* BitLoader.swift in Sources */,
 				0DD73791292FE16100CB584B /* JokeSeedToolApp.swift in Sources */,
 				0DD9C22B2930875D00EE9DB2 /* LoadingOverlay.swift in Sources */,
+				0D22B63F2936F15D00C052BD /* UpjokeParser.swift in Sources */,
 				0D22B63D2934293A00C052BD /* TextOnBackgroundStamperTool.swift in Sources */,
 				0DD737A2292FE21700CB584B /* ViewModel.swift in Sources */,
 				0DD737AC29300A2200CB584B /* Bit.swift in Sources */,

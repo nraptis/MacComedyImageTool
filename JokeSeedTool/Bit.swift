@@ -79,14 +79,6 @@ enum Bit: CustomStringConvertible {
         }
     }
     
-    var fileName: String {
-        if isOneLiner() {
-            return "\(line1().lowercased()).png"
-        } else {
-            return "\(line1().lowercased())_\(line2().lowercased()).png"
-        }
-    }
-    
     private var legalCharacters: Set<Character> {
         let string = "abcdefghijklmnopqrstuvwxyz0123456789"
         let array = Array(string)
@@ -106,11 +98,19 @@ enum Bit: CustomStringConvertible {
         return String(array)
     }
     
+    var fileName: String {
+        if isOneLiner() {
+            return "\(escapeToUnderscore(line1().lowercased())).png"
+        } else {
+            return "\(escapeToUnderscore(line1().lowercased()))_\(escapeToUnderscore(line2().lowercased())).png"
+        }
+    }
+    
     var fileNameText: String {
         if isOneLiner() {
-            return "TEXT_\(escapeToUnderscore(line1())).png"
+            return "TEXT_\(escapeToUnderscore(line1().lowercased())).png"
         } else {
-            return "TEXT_\(escapeToUnderscore(line1()))_\(escapeToUnderscore(line2())).png"
+            return "TEXT_\(escapeToUnderscore(line1().lowercased()))_\(escapeToUnderscore(line2().lowercased())).png"
         }
     }
 }
